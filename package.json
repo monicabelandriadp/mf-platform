@@ -18,6 +18,7 @@
     "@nx/module-federation": "22.3.3",
     "@nx/playwright": "22.3.3",
     "@nx/react": "^22.3.3",
+    "@nx/vite": "^22.3.3",
     "@nx/web": "22.3.3",
     "@nx/webpack": "^22.3.3",
     "@playwright/test": "^1.36.0",
