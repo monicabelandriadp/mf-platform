@@ -10,9 +10,16 @@ if (!remoteName) {
   process.exit(1);
 }
 
-const command = `npx nx g @nx/react:remote --name=${remoteName} directory=apps/${remoteName} --host=shell --bundler=webpack --style=css --e2eTestRunner=none`;
+const command = `
+npx nx g @nx/react:remote
+  --name=${remoteName}
+  --directory=apps/${remoteName}
+  --host=shell
+  --bundler=webpack
+  --style=css
+  --e2eTestRunner=none
+`.replace(/\s+/g, ' ').trim();
 
-                 
 console.log(`🚀 Creando remote: ${remoteName}`);
 execSync(command, { stdio: 'inherit' });
 

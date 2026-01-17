@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "create:remote": "node tools/create-remote.mjs",
-    "serve:shell": "nx serve shell --devRemotes=security --quiet"
+    "serve:shell": "nx serve shell --devRemotes=security,test --quiet"
   },
   "private": true,
   "devDependencies": {

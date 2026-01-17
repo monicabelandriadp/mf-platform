@@ -1,10 +1,10 @@
 {
-  "name": "shell",
+  "name": "test",
   "version": "0.0.1",
   "private": true,
   "nx": {
-    "name": "shell",
-    "sourceRoot": "apps/shell/src",
+    "name": "test",
+    "sourceRoot": "apps/test/src",
     "targets": {
       "build": {
         "executor": "@nx/webpack:webpack",
@@ -14,20 +14,20 @@
         "defaultConfiguration": "production",
         "options": {
           "compiler": "babel",
-          "outputPath": "apps/shell/dist",
-          "index": "apps/shell/src/index.html",
+          "outputPath": "apps/test/dist",
+          "index": "apps/test/src/index.html",
           "baseHref": "/",
-          "main": "apps/shell/src/main.ts",
-          "tsConfig": "apps/shell/tsconfig.app.json",
+          "main": "apps/test/src/main.ts",
+          "tsConfig": "apps/test/tsconfig.app.json",
           "assets": [
-            "apps/shell/src/favicon.ico",
-            "apps/shell/src/assets"
+            "apps/test/src/favicon.ico",
+            "apps/test/src/assets"
           ],
           "styles": [
-            "apps/shell/src/styles.css"
+            "apps/test/src/styles.css"
           ],
           "scripts": [],
-          "webpackConfig": "apps/shell/webpack.config.ts"
+          "webpackConfig": "apps/test/webpack.config.ts"
         },
         "configurations": {
           "development": {
@@ -39,8 +39,8 @@
           "production": {
             "fileReplacements": [
               {
-                "replace": "apps/shell/src/environments/environment.ts",
-                "with": "apps/shell/src/environments/environment.prod.ts"
+                "replace": "apps/test/src/environments/environment.ts",
+                "with": "apps/test/src/environments/environment.prod.ts"
               }
             ],
             "optimization": true,
@@ -60,16 +60,16 @@
         "executor": "@nx/react:module-federation-dev-server",
         "defaultConfiguration": "development",
         "options": {
-          "buildTarget": "shell:build",
+          "buildTarget": "test:build",
           "hmr": true,
-          "port": 4200
+          "port": 4202
         },
         "configurations": {
           "development": {
-            "buildTarget": "shell:build:development"
+            "buildTarget": "test:build:development"
           },
           "production": {
-            "buildTarget": "shell:build:production",
+            "buildTarget": "test:build:production",
             "hmr": false
           }
         },
@@ -77,37 +77,39 @@
           "typecheck"
         ]
       },
-      "lint": {
-        "executor": "@nx/eslint:lint"
-      },
       "test": {
         "executor": "@nx/jest:jest",
         "outputs": [
           "{projectRoot}/test-output/jest/coverage"
         ],
         "options": {
-          "jestConfig": "apps/shell/jest.config.cts"
+          "jestConfig": "apps/test/jest.config.cts"
         }
       },
       "serve-static": {
         "executor": "@nx/react:module-federation-static-server",
         "defaultConfiguration": "production",
         "options": {
-          "serveTarget": "shell:serve"
+          "serveTarget": "test:serve"
         },
         "configurations": {
           "development": {
-            "serveTarget": "shell:serve:development"
+            "serveTarget": "test:serve:development"
           },
           "production": {
-            "serveTarget": "shell:serve:production"
+            "serveTarget": "test:serve:production"
           }
         }
       }
     }
   },
-  "devDependencies": {
-    "security": "*",
-    "test": "*"
-  }
+  "exports": {
+    "./Module": {
+      "@org/source": "./src/remote-entry.ts",
+      "types": "./src/remote-entry.ts",
+      "import": "./src/remote-entry.ts",
+      "default": "./src/remote-entry.ts"
+    }
+  },
+  "types": "./src/remote-entry.ts"
 }
