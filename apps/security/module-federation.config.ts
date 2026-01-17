@@ -5,6 +5,7 @@ const config: ModuleFederationConfig = {
   exposes: {
     './Module': './src/remote-entry.ts',
     './LoginForm': './src/app/login-form.tsx',
+    './SecurityDashboard': './src/app/security-dashboard.tsx',
   },
 };
 

@@ -3,6 +3,9 @@ import { Link, Route, Routes } from 'react-router-dom';
 
 // Importación Lazy del componente remoto
 const LoginForm = React.lazy(() => import('security/LoginForm'));
+const SecurityDashboard = React.lazy(
+  () => import('security/SecurityDashboard')
+);
 
 export function App() {
   return (
@@ -20,6 +23,14 @@ export function App() {
             <li>
               <Link to="/login" className="text-blue-600 hover:text-blue-800">
                 Login
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/dashboard"
+                className="text-blue-600 hover:text-blue-800"
+              >
+                Dashboard
               </Link>
             </li>
           </ul>
@@ -41,6 +52,7 @@ export function App() {
               }
             />
             <Route path="/login" element={<LoginForm />} />
+            <Route path="/dashboard" element={<SecurityDashboard />} />
           </Routes>
         </React.Suspense>
       </main>
