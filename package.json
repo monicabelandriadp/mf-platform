@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "create:remote": "node tools/create-remote.mjs"
+    "create:remote": "node tools/create-remote.mjs",
+    "serve:shell": "nx serve shell --devRemotes=security"
   },
   "private": true,
   "devDependencies": {
