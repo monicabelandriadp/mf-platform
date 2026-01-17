@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Link, Route, Routes } from 'react-router-dom';
 
 // Importación Lazy del componente remoto
-const LoginForm = React.lazy(() => import('login/LoginForm'));
+const LoginForm = React.lazy(() => import('security/LoginForm'));
 
 export function App() {
   return (

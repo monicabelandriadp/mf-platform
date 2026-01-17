@@ -10,7 +10,7 @@
       "path": "./apps/shell"
     },
     {
-      "path": "./apps/login"
+      "path": "./apps/security"
     },
     {
       "path": "./packages/types"

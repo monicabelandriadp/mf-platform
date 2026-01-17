@@ -6,7 +6,7 @@ const remoteName = process.argv[2];
 
 if (!remoteName) {
   console.error('❌ Debes indicar el nombre del remote');
-  console.error('Ejemplo: npm run create:remote login');
+  console.error('Ejemplo: npm run create:remote security');
   process.exit(1);
 }
 

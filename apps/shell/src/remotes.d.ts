@@ -1,1 +1,1 @@
-declare module 'login/LoginForm';
+declare module 'security/LoginForm';

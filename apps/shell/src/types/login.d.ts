@@ -1,7 +1,7 @@
 import { ModuleFederationConfig } from '@nx/module-federation';
 
 const config: ModuleFederationConfig = {
-  name: 'login',
+  name: 'security',
   exposes: {
     './Module': './src/remote-entry.ts',
   },

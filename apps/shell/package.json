@@ -107,6 +107,6 @@
     }
   },
   "devDependencies": {
-    "login": "*"
+    "security": "*"
   }
 }
