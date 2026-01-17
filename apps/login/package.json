@@ -1,10 +1,10 @@
 {
-  "name": "shell",
+  "name": "login",
   "version": "0.0.1",
   "private": true,
   "nx": {
-    "name": "shell",
-    "sourceRoot": "apps/shell/src",
+    "name": "login",
+    "sourceRoot": "apps/login/src",
     "targets": {
       "build": {
         "executor": "@nx/webpack:webpack",
@@ -14,20 +14,20 @@
         "defaultConfiguration": "production",
         "options": {
           "compiler": "babel",
-          "outputPath": "apps/shell/dist",
-          "index": "apps/shell/src/index.html",
+          "outputPath": "apps/login/dist",
+          "index": "apps/login/src/index.html",
           "baseHref": "/",
-          "main": "apps/shell/src/main.ts",
-          "tsConfig": "apps/shell/tsconfig.app.json",
+          "main": "apps/login/src/main.ts",
+          "tsConfig": "apps/login/tsconfig.app.json",
           "assets": [
-            "apps/shell/src/favicon.ico",
-            "apps/shell/src/assets"
+            "apps/login/src/favicon.ico",
+            "apps/login/src/assets"
           ],
           "styles": [
-            "apps/shell/src/styles.css"
+            "apps/login/src/styles.css"
           ],
           "scripts": [],
-          "webpackConfig": "apps/shell/webpack.config.ts"
+          "webpackConfig": "apps/login/webpack.config.ts"
         },
         "configurations": {
           "development": {
@@ -39,8 +39,8 @@
           "production": {
             "fileReplacements": [
               {
-                "replace": "apps/shell/src/environments/environment.ts",
-                "with": "apps/shell/src/environments/environment.prod.ts"
+                "replace": "apps/login/src/environments/environment.ts",
+                "with": "apps/login/src/environments/environment.prod.ts"
               }
             ],
             "optimization": true,
@@ -60,16 +60,16 @@
         "executor": "@nx/react:module-federation-dev-server",
         "defaultConfiguration": "development",
         "options": {
-          "buildTarget": "shell:build",
+          "buildTarget": "login:build",
           "hmr": true,
-          "port": 4200
+          "port": 4201
         },
         "configurations": {
           "development": {
-            "buildTarget": "shell:build:development"
+            "buildTarget": "login:build:development"
           },
           "production": {
-            "buildTarget": "shell:build:production",
+            "buildTarget": "login:build:production",
             "hmr": false
           }
         },
@@ -86,27 +86,33 @@
           "{projectRoot}/test-output/jest/coverage"
         ],
         "options": {
-          "jestConfig": "apps/shell/jest.config.cts"
+          "jestConfig": "apps/login/jest.config.cts"
         }
       },
       "serve-static": {
         "executor": "@nx/react:module-federation-static-server",
         "defaultConfiguration": "production",
         "options": {
-          "serveTarget": "shell:serve"
+          "serveTarget": "login:serve"
         },
         "configurations": {
           "development": {
-            "serveTarget": "shell:serve:development"
+            "serveTarget": "login:serve:development"
           },
           "production": {
-            "serveTarget": "shell:serve:production"
+            "serveTarget": "login:serve:production"
           }
         }
       }
     }
   },
-  "devDependencies": {
-    "login": "*"
-  }
+  "exports": {
+    "./Module": {
+      "@org/source": "./src/remote-entry.ts",
+      "types": "./src/remote-entry.ts",
+      "import": "./src/remote-entry.ts",
+      "default": "./src/remote-entry.ts"
+    }
+  },
+  "types": "./src/remote-entry.ts"
 }
