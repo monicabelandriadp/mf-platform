@@ -2,7 +2,9 @@
   "name": "@org/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "create:remote": "node tools/create-remote.mjs"
+  },
   "private": true,
   "devDependencies": {
     "@babel/core": "^7.14.5",
