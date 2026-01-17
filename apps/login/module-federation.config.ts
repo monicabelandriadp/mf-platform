@@ -4,6 +4,7 @@ const config: ModuleFederationConfig = {
   name: 'login',
   exposes: {
     './Module': './src/remote-entry.ts',
+    './LoginForm': './src/app/login-form.tsx',
   },
 };
 
