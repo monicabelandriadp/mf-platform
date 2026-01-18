@@ -1,9 +1,6 @@
 import * as React from 'react';
 import { Link, Route, Routes } from 'react-router-dom';
 
-import { Label } from '@platform/ui';
-import { Input } from '@platform/ui';
-
 const Test = React.lazy(() => import('test/Module'));
 
 // Importación Lazy del componente remoto
@@ -65,8 +62,6 @@ export function App() {
           </Routes>
         </React.Suspense>
       </main>
-      <Label>Componente de shadcn</Label>
-      <Input></Input>
     </div>
   );
 }
