@@ -1,5 +1,8 @@
 import { useState } from 'react';
 
+import { Label } from '@platform/ui';
+import { Input } from '@platform/ui';
+
 export function LoginForm() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -19,13 +22,13 @@ export function LoginForm() {
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label
+            <Label
               htmlFor="username"
               className="block text-sm font-medium text-gray-700"
             >
               Usuario
-            </label>
-            <input
+            </Label>
+            <Input
               id="username"
               type="text"
               required
