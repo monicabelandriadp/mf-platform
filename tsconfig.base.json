@@ -19,7 +19,9 @@
     "customConditions": ["@org/source"],
     "baseUrl": ".",
     "paths": {
-      "@/*": ["packages/ui/src/*"]
+      "@platform/ui": ["packages/ui/src/index.ts"],
+      "@platform/ui/*": ["packages/ui/src/*"],
+      "@platform/ui/lib/*": ["packages/ui/src/lib/*"]
     }
   }
 }
