@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { Link, Route, Routes } from 'react-router-dom';
 
+import '@platform/ui/styles.css';
+
 const Test = React.lazy(() => import('test/Module'));
 
 // Importación Lazy del componente remoto
