@@ -1,10 +1,11 @@
 {
-  "name": "@org/source",
+  "name": "@platform/frontends",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
     "create:remote": "node tools/create-remote.mjs",
-    "serve:shell": "nx serve shell --devRemotes=security,test --quiet"
+    "create:library": "node tools/create-library.mjs",
+    "serve:shell": "nx serve shell"
   },
   "private": true,
   "devDependencies": {
